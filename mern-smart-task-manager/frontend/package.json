@@ -1,0 +1,15 @@
+{
+  "name": "mern-smart-task-manager-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^1.7.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.1"
+  },
+  "scripts": {
+    "start": "echo \"Use create-react-app scaffolding or your preferred React starter before running.\"",
+    "build": "echo \"Not configured\""
+  }
+}
