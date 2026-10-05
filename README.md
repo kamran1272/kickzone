@@ -1,5 +1,14 @@
-🏆 KickZone – Sports Management System
+# 🏆 KickZone – Sports Management System
+
+![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Blade](https://img.shields.io/badge/Blade-F05340?style=for-the-badge&logo=laravel&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
 <p align="center"> <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"> </p>
+
 📖 About the Project
 
 KickZone is my final year university project built with Laravel, MySQL, and Bootstrap/Tailwind.
@@ -48,7 +57,7 @@ IDE Used: Visual Studio Code
 
 Clone the Repository
 
-git clone https://github.com/YOUR-USERNAME/kickzone.git
+git clone https://github.com/kamran1272/kickzone.git
 cd kickzone
 
 
@@ -112,5 +121,4 @@ Kamran Khan
 
 📜 License
 
-This project is open-sourced under the MIT License
-.
+MIT — see [LICENSE](LICENSE).
