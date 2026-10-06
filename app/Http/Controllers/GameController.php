@@ -9,7 +9,7 @@ class GameController extends Controller
 {
     public function userIndex()
     {
-        $games = Game::with(['homeTeam', 'awayTeam', 'venue'])
+        $games = Game::with(['homeTeam', 'awayTeam'])
                     ->where('date', '>=', now()->toDateString())
                     ->orderBy('date')
                     ->orderBy('time')

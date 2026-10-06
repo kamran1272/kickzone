@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     protected $fillable = [
-        'date', 'time', 'home_team_id', 'away_team_id', 'venue_id',
+        'date', 'time', 'home_team_id', 'away_team_id', 'venue',
         'home_score', 'away_score', 'competition', 'referee', 'description'
     ];
 
@@ -26,8 +26,4 @@ class Game extends Model
         return $this->belongsTo(Team::class, 'away_team_id');
     }
 
-    public function venue()
-    {
-        return $this->belongsTo(Venue::class);
-    }
 }

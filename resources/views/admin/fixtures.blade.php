@@ -93,7 +93,7 @@
                                             </td>
                                             <td>
                                                 <span class="d-inline-block text-truncate" style="max-width: 150px;">
-                                                    {{ $fixture->venue->name ?? 'TBD' }}
+                                                    {{ $fixture->location ?? 'TBD' }}
                                                 </span>
                                             </td>
                                             <td>
@@ -231,15 +231,6 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="venue_id" class="form-label">Venue</label>
-                                <select class="form-select" id="venue_id" name="venue_id">
-                                    <option value="">Select Venue</option>
-                                    {{-- @foreach ($venues as $venue)
-                                        <option value="{{ $venue->id }}">{{ $venue->name }}</option>
-                                    @endforeach --}}
-                                </select>
-                            </div>
                             <div class="col-md-6 mb-3">
                                 <label for="status" class="form-label">Status</label>
                                 <select class="form-select" id="status" name="status" required>
