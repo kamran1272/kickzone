@@ -1,4 +1,4 @@
-# 🏆 KickZone – Sports Management System
+# 🏆 KickZone — Sports Management System
 
 ![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white)
@@ -7,118 +7,152 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-<p align="center"> <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"> </p>
+A complete web platform for managing sports organizations — teams, players, fixtures, events, announcements, and results — with a full admin panel and role-based access control. Built as a final-year university project.
 
-📖 About the Project
+> 🎮 **Live interactive demo:** https://kamran1272.github.io/portfolio/kickzone-demo/
+> (static preview with sample data — login goes straight to the dashboard)
 
-KickZone is my final year university project built with Laravel, MySQL, and Bootstrap/Tailwind.
+---
 
-It is a Sports Management System that helps manage:
+## 📖 About
 
-🏅 Sports – create, update, and categorize sports.
+KickZone centralizes everything a sports organization needs:
 
-👥 Users – players, admins, coaches, and general users.
+- 🏅 **Sports** — create, update, and categorize sports
+- 👥 **Users** — admins, coaches, and general users with role-based access
+- 🧑‍🤝‍🧑 **Players** — detailed profiles with team, position, jersey number, and physical stats
+- 🏟️ **Teams** — linked to sports, with win/loss records and rankings
+- 📅 **Fixtures & Games** — upcoming matches with dates, times, venues, and referees
+- 📣 **Announcements & Events** — publish news and manage event registrations
+- 📊 **Admin dashboard** — stats cards, recent registrations, upcoming fixtures, quick actions
+- ✉️ **Contact form** — messages flow into the admin panel
 
-🧑‍🤝‍🧑 Players – detailed profiles with team, stats, and images.
+---
 
-📅 Fixtures – upcoming matches and schedules.
+## ✨ Features
 
-📊 Dashboard – admin view with statistics, reports, and quick actions.
+- 🔐 Admin & user authentication (Laravel Breeze + custom `is_admin` middleware)
+- 🛡️ Role-based access control — admin routes protected, users get their own portal
+- 🔄 Full CRUD for sports, teams, players, fixtures, events, announcements, results, schedules
+- 🖼️ Photo upload for players (Laravel filesystem, `storage/app/public`)
+- 📊 Dashboard with stats, recent registrations, and upcoming fixtures
+- 📝 Player registrations and contact messages managed from the admin panel
+- 📱 Fully responsive (Bootstrap 5 + Tailwind CSS)
 
-🚀 Features
+---
 
-✅ Admin & User login (with middleware for access control).
+## 🛠️ Tech Stack
 
-✅ Player management (CRUD with photo upload).
+| Layer | Technology |
+|---|---|
+| Backend | Laravel 12 (PHP 8.2+) |
+| Database | MySQL (SQLite for local dev) |
+| Frontend | Blade, Bootstrap 5, Tailwind CSS, Alpine.js |
+| Auth | Laravel Breeze + custom admin middleware |
+| Build | Vite |
 
-✅ Fixture scheduling and upcoming match calendar.
+---
 
-✅ Admin dashboard with charts and stats.
+## 📸 Screenshots
 
-✅ Contact form → Admin dashboard messages.
+### Homepage
+![KickZone homepage](screenshots/home.png)
 
-✅ Image storage using Laravel’s filesystem (storage/app/public).
+### Admin Dashboard
+![Admin dashboard](screenshots/dashboard.png)
 
-🛠️ Tech Stack
+### Team Management
+![Team management](screenshots/teams.png)
 
-Backend: Laravel 12 (PHP 8.2)
+### Player Management
+![Player management](screenshots/players.png)
 
-Database: MySQL
+### Upcoming Games
+![Upcoming games](screenshots/games.png)
 
-Frontend: Bootstrap 5 + TailwindCSS
+---
 
-Auth: Laravel Breeze + Custom Admin Middleware
+## ⚡ Getting Started
 
-Charts: Chart.js
+### Prerequisites
+- PHP 8.2+, Composer
+- Node.js 18+, npm
+- MySQL (or SQLite for quick local setup)
 
-IDE Used: Visual Studio Code
+### Installation
 
-⚡ Getting Started in VS Code
-
-Clone the Repository
-
+```bash
+# 1. Clone
 git clone https://github.com/kamran1272/kickzone.git
 cd kickzone
 
-
-Open in VS Code
-
-code .
-
-
-Install Dependencies
-
+# 2. Install dependencies
 composer install
-npm install && npm run dev
+npm install
 
-
-Setup Environment
-Copy .env.example → .env and configure your DB connection:
-
+# 3. Environment
 cp .env.example .env
 php artisan key:generate
 
+# 4. Database (SQLite quick start)
+# set DB_CONNECTION=sqlite in .env, then:
+touch database/database.sqlite
+php artisan migrate --seed        # creates admin user
+php artisan db:seed --class=DemoSeeder   # optional: sample sports data
 
-Run Migrations & Seed Admin User
+# 5. Frontend assets
+npm run build
 
-php artisan migrate --seed
-
-
-Default admin credentials:
-
-Email:    admin123@gmail.com  
-Password: admin123  
-
-
-Link Storage for Player Photos
-
-php artisan storage:link
-
-
-Run the Application
-
+# 6. Serve
 php artisan serve
+```
 
+Visit 👉 http://127.0.0.1:8000
 
-Visit: 👉 http://127.0.0.1:8000
+### Default credentials
 
-📸 Screenshots
-🔑 Login Page
+| Role | Email | Password |
+|---|---|---|
+| Admin | `admin123@gmail.com` | `admin123` |
+| User | `test@example.com` | `password` |
 
-🏟️ Admin Dashboard
+> For player photo uploads: `php artisan storage:link`
 
-👤 Player Management
+---
 
-👨‍💻 Author
+## 📁 Project Structure
 
-Kamran Khan
+```
+app/
+├── Http/Controllers/
+│   ├── Admin/          # Dashboard, Sports, Teams, Players, Fixtures,
+│   │                   # Events, Announcements, Results, Schedules,
+│   │                   # Registrations, Reports, Users, Settings
+│   ├── Auth/           # Breeze authentication
+│   ├── ContactController.php
+│   └── GameController.php
+├── Models/             # Sport, Team, Player, Fixture, Game, Event,
+│                       # Announcement, Result, Schedule, Registration, User
+database/
+├── migrations/         # 20 migrations incl. schema refinements
+└── seeders/            # AdminSeeder, DemoSeeder (sample data)
+resources/views/
+├── admin/              # Admin panel (dashboard, CRUD pages)
+├── auth/               # Login / register
+└── user/               # Public portal (games, teams, players…)
+routes/web.php          # Public, auth, and admin (is_admin) route groups
+```
 
-🎓 Computer Science Student (Final Year)
+---
 
-💻 Full-Stack Developer (Laravel + React.js)
+## 👨‍💻 Author
 
-🌍 Based in Pakistan
+**Kamran Khan** — Full-Stack Developer (Laravel + React.js)
 
-📜 License
+- 🌐 Portfolio: https://kamran1272.github.io/portfolio/
+- 💼 LinkedIn: https://www.linkedin.com/in/kamran-khan-dev
+- 🐙 GitHub: https://github.com/kamran1272
+
+## 📜 License
 
 MIT — see [LICENSE](LICENSE).
