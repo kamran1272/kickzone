@@ -225,13 +225,13 @@
                                                         <div class="avatar-sm me-3 text-center">
                                                             <img src="https://via.placeholder.com/30" alt="team-logo"
                                                                 class="avatar-xs rounded-circle">
-                                                            <div class="text-xs mt-1">{{ $fixture->team1->name }}</div>
+                                                            <div class="text-xs mt-1">{{ $fixture->team1?->name ?? 'TBD' }}</div>
                                                         </div>
                                                         <div class="text-center mx-2 fw-bold text-primary">vs</div>
                                                         <div class="avatar-sm text-center">
                                                             <img src="https://via.placeholder.com/30" alt="team-logo"
                                                                 class="avatar-xs rounded-circle">
-                                                            <div class="text-xs mt-1">{{ $fixture->team2->name }}</div>
+                                                            <div class="text-xs mt-1">{{ $fixture->team2?->name ?? 'TBD' }}</div>
                                                         </div>
                                                     </div>
                                                 </td>

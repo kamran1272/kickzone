@@ -13,7 +13,7 @@ class Team extends Model
     use HasFactory;
 
    protected $fillable = [
-        'name', 'logo_url', 'founded_year', 'home_ground', 
+        'name', 'sport_id', 'logo_url', 'founded_year', 'home_ground', 
         'ranking', 'wins', 'losses', 'win_rate', 'description', 'coach_id'
     ];
     public function sport()

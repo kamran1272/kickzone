@@ -27,7 +27,6 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 
 // Authenticated user routes
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', fn () => view('user.home'))->name('home');
     Route::get('/user/home', fn () => view('user.home'))->middleware('verified')->name('home');
     Route::get('/user/profile', [UserController::class, 'profile'])->name('user.profile');
     Route::post('/profile/avatar', [UserController::class, 'updateAvatar'])->name('profile.avatar');    
@@ -45,10 +44,6 @@ Route::middleware(['auth'])->group(function () {
 // Admin routes
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(function () {
     // Dashboard
-    Route::get('/dashboard', function () {
-        $sports = \App\Models\Sport::all(); 
-        return view('admin.dashboard', compact('sports'));
-    })->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
 
