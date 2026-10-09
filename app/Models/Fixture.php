@@ -10,10 +10,18 @@ class Fixture extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 
+        'title',
+        'team1_id',
+        'team2_id',
         'date',
+        'time',
         'location',
         // other fillable fields
+    ];
+
+    protected $casts = [
+        'date' => 'date',
+        'time' => 'datetime:H:i',
     ];
 
     public function team1()

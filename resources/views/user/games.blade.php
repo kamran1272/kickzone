@@ -29,7 +29,7 @@
                                     <i class="bi bi-geo-alt fs-4 text-primary me-3"></i>
                                     <div>
                                         <h6 class="mb-0">Venue</h6>
-                                        <p class="mb-0">{{ $game->venue->name ?? 'TBD' }}</p>
+                                        <p class="mb-0">{{ $game->venue ?? 'TBD' }}</p>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center">
@@ -102,7 +102,7 @@
                                                         <li class="mb-2"><strong>Time:</strong>
                                                             {{ $game->time->format('g:i A') }}</li>
                                                         <li class="mb-2"><strong>Venue:</strong>
-                                                            {{ $game->venue->name ?? 'TBD' }}</li>
+                                                            {{ $game->venue ?? 'TBD' }}</li>
                                                         <li class="mb-2"><strong>Referee:</strong>
                                                             {{ $game->referee ?? 'TBD' }}</li>
                                                         <li><strong>Competition:</strong>

@@ -20,7 +20,10 @@ class FixtureController extends Controller
 {
     $validated = $request->validate([
         'title' => 'required|string|max:255',
+        'team1_id' => 'nullable|exists:teams,id',
+        'team2_id' => 'nullable|exists:teams,id|different:team1_id',
         'date' => 'required|date',
+        'time' => 'nullable|date_format:H:i',
         'location' => 'required|string|max:255',
     ]);
 

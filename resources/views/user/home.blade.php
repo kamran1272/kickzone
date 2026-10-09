@@ -2,19 +2,33 @@
 
 @section('content')
     <div class="container-fluid px-0">
-        <!-- Hero Section -->
-        <div class="hero-section text-white d-flex align-items-center justify-content-center text-center">
-            <div class="container py-5">
-                <img src="{{ asset('images/logo1.png') }}" alt="KickZone Logo" class="mb-4 mx-auto d-block"
-                    style="width: 180px; height: 180px;">
-                <h1 class="display-3 fw-bold mb-4">Welcome to KickZone</h1>
-                <p class="lead fs-3 mb-5">Your ultimate hub for everything sports and entertainment!</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="#" class="btn btn-primary btn-lg px-4 py-3 rounded-pill">Explore Matches</a>
-                    <a href="#" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill">Join Community</a>
+        <!-- Professional Hero Section -->
+        <section class="kz-hero">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <span class="kz-eyebrow">Sports Management Platform</span>
+                        <h1 class="kz-title">Run Your Entire <span class="kz-accent">Sports Organization</span> From One Dashboard</h1>
+                        <p class="kz-sub">KickZone brings teams, players, fixtures, events, and registrations together in one clean workspace &mdash; built for clubs, academies, and leagues of every size.</p>
+                        <div class="kz-cta">
+                            <a href="{{ route('register') }}" class="kz-btn kz-btn-primary">Get Started Free</a>
+                            <a href="{{ route('login') }}" class="kz-btn kz-btn-ghost">Admin Login</a>
+                        </div>
+                        <div class="kz-stats">
+                            <div class="kz-stat"><strong>1,250+</strong><span>Active Players</span></div>
+                            <div class="kz-stat"><strong>48</strong><span>Teams</span></div>
+                            <div class="kz-stat"><strong>320+</strong><span>Matches</span></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="kz-shot">
+                            <div class="kz-shot-bar"><i></i><i></i><i></i></div>
+                            <img src="{{ asset('images/img3.jpg') }}" alt="KickZone dashboard preview">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Enhanced Features Section -->
         <section class="py-5 bg-light">
@@ -176,36 +190,101 @@
     </div>
 
     <style>
-        .hero-section::before {
-            content: '';
+        /* KickZone Professional Hero */
+        .kz-hero {
+            position: relative;
+            overflow: hidden;
+            background-color: #0a1428;
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 44px 44px;
+            padding: 96px 0 90px;
+        }
+
+        .kz-hero::before {
+            content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #22d3ee 0%, #3b82f6 100%);
         }
 
-        .hero-section .container {
-            position: relative;
-            z-index: 2;
-            /* Ensure content is above the overlay */
+        .kz-eyebrow {
+            display: inline-block;
+            background: #22d3ee;
+            color: #0a1428;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 9px 20px;
+            border-radius: 50px;
+            margin-bottom: 26px;
         }
 
-        .hero-section {
-            background: url('{{ asset('images/img1.jpg') }}') no-repeat center center;
-            background-size: cover;
-
-            /* Full viewport height */
-            position: relative;
+        .kz-title {
+            color: #ffffff;
+            font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+            font-weight: 800;
+            line-height: 1.12;
+            letter-spacing: -0.5px;
+            margin: 0 0 22px;
         }
 
-        .hero-section img {
-            display: block;
+        .kz-title .kz-accent { color: #22d3ee; }
+
+        .kz-sub {
+            color: #cbd5e1;
+            font-size: 1.15rem;
+            line-height: 1.75;
+            margin: 0 0 38px;
+            max-width: 540px;
+        }
+
+        .kz-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 52px; }
+
+        .kz-btn {
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+        }
+
+        .kz-btn-primary { background: #22d3ee; color: #0a1428; border: 2px solid #22d3ee; }
+        .kz-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(34,211,238,.35); color: #0a1428; }
+        .kz-btn-ghost { background: transparent; color: #ffffff; border: 2px solid rgba(255,255,255,.5); }
+        .kz-btn-ghost:hover { background: rgba(255,255,255,.1); border-color: #ffffff; color: #ffffff; }
+
+        .kz-stats { display: flex; flex-wrap: wrap; }
+        .kz-stat { padding: 0 36px; border-left: 1px solid rgba(255,255,255,.14); }
+        .kz-stat:first-child { padding-left: 0; border-left: none; }
+        .kz-stat strong { display: block; color: #ffffff; font-size: 1.9rem; font-weight: 800; line-height: 1.1; }
+        .kz-stat span { color: #94a3b8; font-size: .78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+
+        .kz-shot {
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 34px 90px rgba(0,0,0,.5);
+            max-width: 560px;
             margin: 0 auto;
-            width: 180px;
-            height: 180px;
+        }
+
+        .kz-shot-bar { display: flex; align-items: center; gap: 8px; background: #f1f5f9; padding: 14px 18px; border-bottom: 1px solid #e2e8f0; }
+        .kz-shot-bar i { width: 12px; height: 12px; border-radius: 50%; background: #cbd5e1; }
+        .kz-shot-bar i:nth-child(1) { background: #f87171; }
+        .kz-shot-bar i:nth-child(2) { background: #fbbf24; }
+        .kz-shot-bar i:nth-child(3) { background: #34d399; }
+        .kz-shot img { display: block; width: 100%; height: auto; max-height: 430px; object-fit: cover; object-position: top center; }
+
+        @media (max-width: 991.98px) {
+            .kz-hero { padding: 72px 0 64px; }
+            .kz-stat { padding: 0 24px; }
+            .kz-sub { max-width: 100%; }
         }
 
         .feature-card {
